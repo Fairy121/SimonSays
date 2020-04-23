@@ -1,0 +1,116 @@
+// variable colors
+$greenBtn: #53c97c;
+$redBtn: #de421b;
+$yellowBtn: #f0df75;
+$blueBtn: #568be8;
+$inner-circle: #12081f;
+$text-col: #68666b;
+$font: "Poppins", sans-serif;
+@mixin position-style() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  font-family: $font;
+  background: $inner-circle;
+}
+.simon-container {
+  width: 35vw;
+  display: none;
+
+  height: 35vw;
+  @include position-style();
+
+  .game-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+
+    height: 100%;
+  }
+  .game-round {
+    background-color: $inner-circle;
+    height: 50%;
+    width: 50%;
+    border-radius: 100%;
+
+    @include position-style();
+    .round-num {
+      text-align: center;
+      color: $text-col;
+      font-family: sans-serif;
+      font-size: 70px;
+
+      @include position-style();
+    }
+  }
+}
+
+.red {
+  background-color: $redBtn;
+  border-radius: 100% 0% 0% 0%;
+}
+.blue {
+  background-color: $blueBtn;
+  border-radius: 0% 100% 0% 0%;
+}
+.yellow {
+  background-color: $yellowBtn;
+
+  border-radius: 0% 0% 0% 100%;
+}
+.green {
+  background-color: $greenBtn;
+  border-radius: 0% 0% 100% 0%;
+}
+.selected {
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+.start-game {
+  @include position-style();
+  width: 30%;
+  padding: 50px;
+  font-size: 26px;
+  border-style: none;
+
+  display: block;
+  background-color: ghostwhite;
+
+  text-transform: uppercase;
+  font-family: $font;
+
+  border-radius: 100px;
+}
+.game-over {
+  @include position-style();
+  // display:none;
+  font-weight: bold;
+  text-align: center;
+
+  border-radius: 20px;
+  display: none;
+  color: $greenBtn;
+
+  h1 {
+    margin-top: 46px;
+    font-size: 45px;
+  }
+  .fas {
+    font-size: 64px;
+    padding: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: $inner-circle;
+    border-radius: 100px;
+    border: 10px inset $greenBtn;
+  }
+}
